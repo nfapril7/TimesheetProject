@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ets.timesheet.TimesheetApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 28.068 s - in com.ets.timesheet.TimesheetApplicationTests
