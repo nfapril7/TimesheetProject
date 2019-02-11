@@ -8,6 +8,7 @@ package com.ets.timesheet.repository.activity;
 import com.ets.timesheet.model.Account;
 import com.ets.timesheet.model.Activity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -17,4 +18,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ActivityRepository extends JpaRepository<Activity, String> {
     
+    @Query("SELECT u FROM Activity u where accountId = ?1 and activityDate = convert(varchar, getdate(), 103) ")
+    public Activity findByAccountId(int accountId);
 }

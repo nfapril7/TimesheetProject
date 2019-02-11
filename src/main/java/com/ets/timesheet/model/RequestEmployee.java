@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,32 +22,29 @@ import lombok.NoArgsConstructor;
  * @author april nf
  */
 @Entity
-@Table(name = "ACTIVITY")
+@Table(name = "REQUEST_EMPLOYEE")
 @Data
 @NoArgsConstructor
-public class Activity {
+public class RequestEmployee {
 
     @Id
     @NotNull
     @Column
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int requestId;
 
     @NotNull
     private int accountId;
 
     @NotNull
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private String activityDate;
+    private Date startDate;
 
     @NotNull
-    private Date startTime;
-
-    private Date endTime;
-
-    private int totalTimes;
-
-    private String activity;
-
-    private char flag;
-
+    private Date endDate;
+        
+    private int totalDays;
+    
+    private String description;
+    
+    private String approvalHistory;
 }

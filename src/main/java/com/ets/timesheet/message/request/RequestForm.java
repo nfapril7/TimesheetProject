@@ -6,8 +6,6 @@
 package com.ets.timesheet.message.request;
 
 import java.util.Date;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,18 +15,16 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class ActivityForm {
+public class RequestForm {
     
-    @NotBlank
-    private Date activityDate;
-       
-    @NotBlank
-    private int totalTimes;
+    private int accountId;
     
-    @NotBlank
-    @Size(min=1)
-    private String activity;
+    private Date startDate;
     
-    @NotBlank
-    private char flag;
+    private Date endDate;
+    
+    private String description;
+    
+    private String approvalHistory;
+    
 }

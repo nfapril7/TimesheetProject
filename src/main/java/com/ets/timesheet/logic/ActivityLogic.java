@@ -18,15 +18,43 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ActivityLogic {
-    
-    private String id;
-    
-    private String start, end;
-    
-    private int totalHours;
-    
-    private Date activityDate;
 
-   
-    
+    private int totalTimes;
+
+    private char flag;
+
+    public int totalHours(Date start, Date end) {
+        long seconds = 1000;
+        long minutes = seconds * 60;
+        long hours = minutes * 60;
+        long totalHours = end.getTime() - start.getTime();
+
+        long days = hours * 24;
+
+        long elapsedDays = totalHours / days;
+        totalHours = totalHours % days;
+
+        long elapsedHours = totalHours / hours;
+        totalHours = totalHours % hours;
+
+        long elapsedMinutes = totalHours / minutes;
+        totalHours = totalHours % minutes;
+
+        long elapsedSeconds = totalHours / seconds;
+
+        //+ ", " + elapsedMinutes + ", " + elapsedSeconds
+        totalTimes = (int) elapsedHours;
+        System.out.println("total "+elapsedHours);
+        return totalTimes;
+    }
+
+    public char flag(int totalTimes) {
+        if (totalTimes >= 8) {
+            flag = 'H';
+        } else {
+            flag = 'T';
+        }
+        return flag;
+    }
+
 }
