@@ -1,3 +1,2 @@
 # Timesheet
-//Latihan
-Spring boot + Spring security + JPA + Lombok +JWT
+Spring boot + Spring security +JWT + Hibernate JPA + Lombok 
